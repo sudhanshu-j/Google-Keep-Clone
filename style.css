@@ -1,0 +1,435 @@
+/* Universal selector to apply common styles to all elements */
+* {
+  margin: 0; /* Removes default margin from all elements */
+  padding: 0; /* Removes default padding from all elements */
+  font-family: "Google Sans", sans-serif; /* Sets the font for all text */
+  box-sizing: border-box; /* Ensures padding and border are included in width/height calculations */
+}
+
+/* Style for the html and body elements */
+html,
+body {
+  background-color: #fff; /* Sets the background color of the page to white */
+  color: #18191d; /* Sets the text color */
+  font-size: 15px; /* Sets the base font size */
+  margin: 0; /* Removes default margin */
+  min-width: 360px; /* Sets a minimum width to ensure readability */
+  overflow-x: hidden; /* Prevents horizontal scrolling */
+  overflow-y: auto; /* Allows vertical scrolling */
+  padding: 0; /* Removes default padding */
+}
+
+/* Main container for the content */
+main {
+  margin: 0 auto; /* Centers the main content horizontally */
+  max-width: 900px; /* Limits the maximum width of the content */
+}
+
+/* Placeholder section (displayed when there are no notes) */
+#placeholder {
+  margin-top: 10vh !important; /* Adds margin to the top, adjusting for viewport height */
+  display: flex; /* Uses flexbox for layout */
+  align-items: center; /* Vertically centers the items */
+  flex-direction: column; /* Aligns items in a column */
+}
+
+/* Placeholder logo styling */
+#placeholder-logo {
+  height: 120px; /* Sets a fixed height for the logo */
+  margin: 20px; /* Adds margin around the logo */
+  opacity: 0.1; /* Makes the logo very transparent */
+  width: 120px; /* Sets a fixed width for the logo */
+}
+
+/* Placeholder text styling */
+#placeholder-text {
+  color: #80868b; /* Sets a muted grey color for the text */
+  cursor: default; /* Sets the cursor to the default arrow */
+  font-size: 1.375rem; /* Sets the font size */
+  font-weight: 400; /* Sets the font weight to normal */
+  line-height: 1.75rem; /* Sets line height for readability */
+}
+
+/* Style for the form container (where the new note form is displayed) */
+#form-container {
+  border-radius: 8px; /* Rounds the corners of the form */
+  border: 0.5px solid #d3d3d3; /* Adds a light border */
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302),
+    0 2px 6px 2px rgba(60, 64, 67, 0.149); /* Adds shadow effects */
+  margin: 32px auto 16px auto; /* Adds margin for spacing and centers the form */
+  max-width: 496px; /* Limits the maximum width */
+  transition-duration: 0.218s; /* Smooth transition for various properties */
+  transition-property: background, border, opacity, box-shadow, transform; /* Specifies properties to animate */
+  transition-timing-function: ease-in; /* Specifies the timing function for the transition */
+}
+
+/* Form styling */
+#form {
+  position: relative; /* Allows absolute positioning of elements inside */
+  border: none; /* Removes any border */
+  margin: 1px; /* Adds a small margin */
+  border-radius: 8px; /* Rounds corners */
+  transition-duration: 0.218s; /* Smooth transition for various properties */
+  transition-property: background, border, opacity, box-shadow, transform; /* Specifies properties to animate */
+  transition-timing-function: ease-in; /* Specifies the timing function for the transition */
+}
+
+/* Class applied when the form is open */
+.form-open {
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); /* Adds a shadow effect when the form is open */
+}
+
+/* Header styling (logo and title) */
+header {
+  display: flex; /* Uses flexbox for layout */
+  align-items: center; /* Vertically centers items */
+  justify-content: center; /* Horizontally centers items */
+  margin-top: 2em; /* Adds margin to the top */
+}
+
+/* Logo styling in the header */
+.header-logo {
+  height: 4em; /* Sets the logo's height */
+}
+
+/* Title styling in the header */
+.header-title {
+  color: #5f6368; /* Sets a grey color for the title */
+  font-size: 2rem; /* Sets the font size */
+  padding-top: 4px; /* Adds padding to the top */
+  padding-left: 4px; /* Adds padding to the left */
+}
+
+/* Notes container styling */
+#notes {
+  display: flex; /* Uses flexbox to arrange the notes */
+  flex-wrap: wrap; /* Allows wrapping of notes to the next line */
+  justify-content: center; /* Centers the notes horizontally */
+}
+
+/* Styling for the note text field */
+#note-text {
+  width: calc(
+    100% - 10px
+  ); /* Makes the input take up full width minus padding */
+  min-height: 43px; /* Sets a minimum height */
+  margin: 0 5px; /* Adds margin for spacing */
+  padding: 10px 10px; /* Adds padding inside the input */
+  font-size: 1rem; /* Sets the font size */
+  font-weight: 500; /* Sets the font weight */
+  line-height: 1.5rem; /* Sets line height for readability */
+  letter-spacing: 0.00625em; /* Adds slight letter-spacing */
+  border: 0; /* Removes the border */
+  overflow: hidden; /* Hides any overflowing text */
+  position: relative; /* Allows positioning of child elements */
+}
+
+/* Modal title input styling */
+.modal-title {
+  width: calc(
+    100% - 10px
+  ); /* Makes the title input take full width minus padding */
+  min-height: 43px; /* Sets a minimum height */
+  margin: 0 5px; /* Adds margin */
+  font-weight: 500; /* Sets font weight */
+  line-height: 1.5rem; /* Sets line height */
+  letter-spacing: 0.00625em; /* Adds letter-spacing */
+  border: 0; /* Removes border */
+  overflow: hidden; /* Hides overflowing content */
+  position: relative; /* Relative positioning */
+  font-size: 1.375rem; /* Sets the font size */
+  padding-bottom: 12px; /* Adds bottom padding */
+  padding-top: 16px; /* Adds top padding */
+}
+
+/* Modal text input styling */
+.modal-text {
+  width: calc(100% - 10px); /* Takes full width minus padding */
+  min-height: 43px; /* Minimum height */
+  margin: 0 5px; /* Adds margin */
+  padding: 10px 10px; /* Adds padding */
+  font-size: 1rem; /* Font size */
+  font-weight: 500; /* Font weight */
+  line-height: 1.5rem; /* Line height */
+  letter-spacing: 0.00625em; /* Letter-spacing */
+  border: 0; /* Removes border */
+  color: #202124; /* Text color */
+  padding: 4px 16px 12px 0px; /* Adjusted padding */
+}
+
+/* Note title input styling (hidden by default) */
+#note-title {
+  display: none; /* Hides the title input */
+  width: calc(100% - 10px); /* Full width minus padding */
+  min-height: 43px; /* Minimum height */
+  margin: 0 5px; /* Adds margin */
+  padding: 10px 10px; /* Adds padding */
+  font-size: 1rem; /* Font size */
+  font-weight: 500; /* Font weight */
+  line-height: 1.5rem; /* Line height */
+  border: 0; /* Removes border */
+}
+
+/* Removes outline when form or input is focused */
+#form:focus,
+input:focus {
+  outline: none; /* Removes outline */
+}
+
+/* Styling for form buttons (Submit and Close) */
+#form-buttons {
+  display: none; /* Hides the form buttons by default */
+  text-align: right; /* Aligns the buttons to the right */
+}
+
+/* Styling for Submit and Close buttons */
+#submit-button,
+#form-close-button {
+  margin: 0.2em 0; /* Adds margin */
+  box-sizing: border-box; /* Ensures padding and borders are included in width/height */
+  color: rgba(0, 0, 0, 0.87); /* Sets text color */
+  font-size: 0.875rem; /* Sets font size */
+  font-weight: 500; /* Sets font weight */
+  line-height: 1.25rem; /* Sets line height */
+  height: 36px; /* Sets the height */
+  padding: 8px 24px; /* Adds padding inside the button */
+  border-radius: 4px; /* Rounds corners of the button */
+  border-color: transparent !important; /* Removes the border */
+  background-color: rgb(251, 251, 251); /* Sets background color */
+}
+
+/* Submit button specific styling */
+#submit-button {
+  color: #fff; /* White text color */
+  background-color: #007bff; /* Blue background color */
+}
+
+/* Hover effect for Submit and Close buttons */
+#submit-button:hover,
+#form-close-button:hover {
+  filter: brightness(95%); /* Makes the button slightly darker on hover */
+}
+
+/* Note styling */
+.note {
+  display: flex; /* Uses flexbox layout */
+  flex-direction: column; /* Arranges items vertically */
+  justify-content: space-between; /* Distributes space between items */
+  margin: 16px; /* Adds margin around the note */
+  width: 250px; /* Sets the width */
+  background-color: #fff; /* White background */
+  border-color: #e0e0e0; /* Light grey border */
+  border: 1px solid #d3d3d3; /* Adds a solid border */
+  border-radius: 8px; /* Rounds corners */
+  transition-duration: 0.218s; /* Smooth transition effect */
+  transition-property: background, border, opacity, box-shadow, transform; /* Specifies properties to animate */
+  transition-timing-function: ease-in; /* Specifies timing function */
+}
+
+/* Hover effect for notes */
+.note:hover {
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302),
+    0 1px 3px 1px rgba(60, 64, 67, 0.149); /* Adds shadow when hovering */
+}
+
+/* Title of the note */
+.note-title {
+  padding-top: 12px; /* Adds top padding */
+  font-size: 1rem; /* Font size */
+  font-weight: 500; /* Font weight */
+  line-height: 1.5rem; /* Line height */
+  min-height: 38px; /* Minimum height */
+  padding: 16px 16px 0 16px; /* Adds padding */
+  transition: background-color 0.218s ease-in; /* Smooth background transition */
+  box-sizing: border-box; /* Includes padding/border in size calculation */
+  white-space: pre-wrap; /* Handles text wrapping */
+  word-wrap: break-word; /* Breaks words if necessary */
+}
+
+/* Text content of the note */
+.note-text {
+  font-size: 1.125rem; /* Font size */
+  font-weight: 400; /* Font weight */
+  line-height: 1.5rem; /* Line height */
+  min-height: 30px; /* Minimum height */
+  letter-spacing: 0.01428571em; /* Letter-spacing */
+  padding: 4px 16px 12px 16px; /* Adds padding */
+  box-sizing: border-box; /* Includes padding/border in size */
+  white-space: pre-wrap; /* Handles text wrapping */
+  word-wrap: break-word; /* Breaks words if necessary */
+}
+
+/* Toolbar for each note */
+.toolbar {
+  opacity: 0; /* Hides the toolbar by default */
+  flex-direction: row-reverse; /* Aligns items to the right */
+  align-items: center; /* Vertically aligns items */
+  color: rgba(0, 0, 0, 0.54); /* Text color */
+  display: flex; /* Uses flexbox */
+  font-size: 12px; /* Font size */
+  line-height: 26px; /* Line height */
+  margin: 4px 0; /* Margin around toolbar */
+  position: relative; /* Allows positioning of child elements */
+  transition: opacity 0.218s ease-in-out, background-color 0.218s ease-in-out,
+    box-shadow 0.218s ease-in-out; /* Transition properties */
+}
+
+/* Hover effect for the toolbar */
+.toolbar:hover {
+  opacity: 1; /* Makes the toolbar visible on hover */
+}
+
+/* Toolbar color and delete buttons */
+.toolbar-color,
+.toolbar-delete {
+  height: 20px; /* Sets the button height */
+  margin: 0 10px; /* Adds margin */
+  width: 20px; /* Sets button width */
+  margin: 0 3px; /* Adjusts margin */
+  cursor: pointer; /* Changes cursor on hover */
+  color: #494e5f; /* Sets button color */
+  opacity: 0.71; /* Sets button opacity */
+}
+
+/* Modal color option section hidden by default */
+.toolbar-color-modal {
+  display: none; /* Hides the color option modal */
+}
+
+/* Tooltip styling for color options */
+#color-tooltip {
+  border-bottom: 2px solid #fff; /* Adds a bottom border */
+  position: absolute; /* Positions the tooltip absolutely */
+  top: -40; /* Positions tooltip above */
+  background: #fff; /* White background */
+  border: 1px solid black; /* Black border */
+  left: 0; /* Aligns to the left */
+  z-index: 20; /* Ensures tooltip is on top */
+  border-radius: 5px; /* Rounds corners */
+  display: none; /* Hides the tooltip */
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2); /* Adds a shadow */
+  padding: 5px 7px 3px; /* Padding inside the tooltip */
+  width: 136px; /* Sets tooltip width */
+  height: 40px; /* Sets tooltip height */
+  justify-content: space-between; /* Distributes content inside */
+}
+
+/* Individual color option for notes */
+.color-option {
+  width: 25px; /* Sets the width */
+  height: 25px; /* Sets the height */
+  border-radius: 50%; /* Rounds corners to create a circle */
+  border: 1px solid #dedede; /* Light border */
+}
+
+/* Hover effect for color options */
+.color-option:hover {
+  border: 1px solid black; /* Changes border color on hover */
+}
+
+/* Modal background overlay */
+.modal {
+  position: fixed; /* Fixes the modal position on screen */
+  left: 0; /* Aligns modal to the left */
+  z-index: 200; /* Ensures the modal is above other content */
+  top: 0; /* Aligns modal to the top */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: rgba(229, 229, 229, 0.5); /* Semi-transparent background */
+  opacity: 0; /* Hidden by default */
+  visibility: hidden; /* Hidden by default */
+  transform: scale(1.1); /* Slightly zoomed out */
+  transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s; /* Transition effects */
+}
+
+/* Modal content box styling */
+.modal-content {
+  box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.302),
+    0 4px 8px 3px rgba(60, 64, 67, 0.149); /* Adds shadow */
+  position: absolute; /* Absolute positioning */
+  top: 50%; /* Centers modal vertically */
+  left: 50%; /* Centers modal horizontally */
+  transform: translate(-50%, -50%); /* Adjusts for exact center */
+  background-color: white; /* White background */
+  padding: 1rem 1.5rem; /* Adds padding */
+  width: 24rem; /* Sets width */
+  border-radius: 0.5rem; /* Rounds corners */
+}
+
+/* Close button in the modal */
+.modal-close-button {
+  float: right; /* Aligns the button to the right */
+  margin: 0.2em 0; /* Adds margin */
+  box-sizing: border-box; /* Includes padding and border in size calculation */
+  color: rgba(0, 0, 0, 0.87); /* Sets text color */
+  font-size: 1rem; /* Font size */
+  font-weight: 500; /* Font weight */
+  line-height: 1.25rem; /* Line height */
+  height: 36px; /* Sets the button height */
+  padding: 8px 24px; /* Adds padding */
+  border-radius: 4px; /* Rounds corners */
+  border-color: transparent !important; /* Removes border */
+  background-color: rgb(251, 251, 251); /* Sets background color */
+  cursor: pointer; /* Makes it clickable */
+}
+
+/* Hover effect for the modal close button */
+.modal-close-button:hover {
+  background-color: rgba(
+    95,
+    99,
+    104,
+    0.039
+  ); /* Changes background color on hover */
+}
+
+/* Open modal class for visibility */
+.open-modal {
+  opacity: 1; /* Makes the modal visible */
+  visibility: visible; /* Makes the modal visible */
+  transform: scale(1); /* Resets scale to normal */
+  transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s; /* Smooth transition */
+}
+
+/* Color options for the modal */
+#white {
+  background: #ffffff; /* White color option */
+}
+
+#purple {
+  background: #d7aefb; /* Purple color option */
+}
+
+#orange {
+  background: #fbbc04; /* Orange color option */
+}
+
+#teal {
+  background: #a7ffeb; /* Teal color option */
+}
+
+/* Media query for small screens (max width 450px) */
+@media (max-width: 450px) {
+  /* Adjustments for smaller screens */
+  .header-logo {
+    width: 30px; /* Smaller logo size */
+    height: auto; /* Maintain aspect ratio */
+  }
+
+  .header-title {
+    font-size: 1.3rem; /* Smaller font size */
+  }
+
+  #form-container {
+    width: 90%; /* Wider form container */
+  }
+
+  #placeholder-logo {
+    width: 80px; /* Smaller logo size */
+    height: auto; /* Maintain aspect ratio */
+  }
+
+  #placeholder-text {
+    font-size: 1.2rem; /* Larger placeholder text */
+  }
+}

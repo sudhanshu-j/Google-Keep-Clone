@@ -1,0 +1,105 @@
+<html lang="en">
+  <!-- Specifies the language of the document as English -->
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Specifies the character encoding for the document as UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Ensures proper scaling of the page on different devices -->
+
+    <!-- Link to normalize.css to ensure consistent styling across browsers -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"
+    />
+
+    <!-- Link to Google Fonts to import the Google Sans font -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Google+Sans:400,500&display=swap"
+    />
+
+    <!-- Set the favicon for the page (the small icon shown in browser tab) -->
+    <link rel="icon" type="image/x-icon" href="/Icons/google-keep.png" />
+
+    <!-- Link to external stylesheet (style.css) for custom styles -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- The title that appears in the browser tab -->
+    <title>Google-keep-Clone</title>
+  </head>
+
+  <body>
+    <!-- Modal for adding or editing notes -->
+    <div class="modal">
+      <div class="modal-content">
+        <!-- Input field for note title -->
+        <input class="modal-title" placeholder="Title" type="text" />
+
+        <!-- Input field for note text/content -->
+        <input class="modal-text" placeholder="Take a note..." type="text" />
+
+        <!-- Close button for the modal -->
+        <span class="modal-close-button">Close</span>
+      </div>
+    </div>
+
+    <main>
+      <header>
+        <!-- Google Keep logo -->
+        <img class="header-logo" src="/Icons/google-keep.png" />
+
+        <!-- Title of the app displayed in the header -->
+        <h2 class="header-title">Keep</h2>
+      </header>
+
+      <div id="form-container">
+        <!-- Form for creating new notes -->
+        <form id="form" autocomplete="off">
+          <!-- Input field for note title -->
+          <input id="note-title" placeholder="Title" type="text" />
+
+          <!-- Input field for note content -->
+          <input id="note-text" placeholder="Take a note..." type="text" />
+
+          <div id="form-buttons">
+            <!-- Submit button to save the note -->
+            <button type="submit" id="submit-button">Submit</button>
+
+            <!-- Close button for the form -->
+            <button type="button" id="form-close-button">Close</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Placeholder for when there are no notes -->
+      <div id="notes"></div>
+      <div id="placeholder">
+        <!-- Image icon for the placeholder -->
+        <img id="placeholder-logo" src="/Icons/lightBulb.png" />
+
+        <!-- Text showing instructions for adding notes -->
+        <p id="placeholder-text">Notes you add appear here</p>
+      </div>
+
+      <!-- Color tooltip for selecting note colors -->
+      <div id="color-tooltip">
+        <!-- Color option for white -->
+        <div class="color-option" data-color="#fff" id="white"></div>
+
+        <!-- Color option for purple -->
+        <div class="color-option" data-color="#d7aefb" id="purple"></div>
+
+        <!-- Color option for orange -->
+        <div class="color-option" data-color="#f4a261" id="orange"></div>
+
+        <!-- Color option for teal -->
+        <div class="color-option" data-color="#a7ffeb" id="teal"></div>
+      </div>
+    </main>
+
+    <!-- Link to the external JavaScript file -->
+    <script src="script.js"></script>
+  </body>
+</html>
+
+<!-- https://google.com/keep -->
