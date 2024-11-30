@@ -134,8 +134,6 @@ git clone https://github.com/your-username/google-keep-clone.git
 
 2. Select the desired color from the tooltip. 🌈
 
----
-
 ## 🛠️ Development
 
 ### 🔧 Prerequisites
