@@ -20,7 +20,7 @@ This is a simple **Google Keep Clone** built using **HTML**, **CSS**, and **Java
 
 You can view the demo of the project here:
 
-[Live Demo](#)
+[Live Demo](https://keep-clonee.netlify.app/)
 
 ## 🛠️ Technologies Used
 
